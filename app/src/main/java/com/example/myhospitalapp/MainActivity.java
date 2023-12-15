@@ -1,6 +1,7 @@
 package com.example.myhospitalapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 //                MainActivity.this.finish();
             }
         });
+        binding.doctorButton.setBackgroundColor(Color.CYAN);
         binding.doctorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
