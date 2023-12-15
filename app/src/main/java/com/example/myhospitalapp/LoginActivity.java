@@ -1,19 +1,19 @@
 package com.example.myhospitalapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.example.myhospitalapp.databinding.ActivityLoginBinding;
-import com.example.myhospitalsystem.Database;
 
 public class LoginActivity extends AppCompatActivity {
 
     ActivityLoginBinding binding;
-    com.example.myhospitalsystem.Database db;
+    com.example.myhospitalapp.Database db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,9 @@ public class LoginActivity extends AppCompatActivity {
 
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        this.setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         db = new Database(this);
         binding.LoginButton.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +46,10 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Username or password is incorrect!", Toast.LENGTH_SHORT).show();
                     }
                 }
+
+//                Intent intent = new Intent(LoginActivity.this, BookAppointment.class);
+//                LoginActivity.this.startActivity(intent);
+//                LoginActivity.this.finish();
             }
         });
     }

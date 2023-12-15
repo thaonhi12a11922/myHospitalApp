@@ -1,12 +1,10 @@
 package com.example.myhospitalapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myhospitalapp.databinding.ActivityMainBinding;
 
@@ -20,12 +18,26 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        binding.nurseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Signup.class);
+                MainActivity.this.startActivity(intent);
+//                MainActivity.this.finish();
+            }
+        });
         binding.patientButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 MainActivity.this.startActivity(intent);
-                MainActivity.this.finish();
+//                MainActivity.this.finish();
+            }
+        });
+        binding.doctorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.startActivity(new Intent(MainActivity.this, ViewAppointment.class));
             }
         });
     }

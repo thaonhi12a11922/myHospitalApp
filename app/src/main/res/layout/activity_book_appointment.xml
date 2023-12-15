@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".BookAppointment">
+
+
+
+    <androidx.appcompat.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        />
+
+
+    <Spinner
+        android:id="@+id/departmentSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/selectDateEV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="SelectDate"
+        android:textSize="20dp"
+        android:editable="false"/>
+
+
+
+    <EditText
+        android:id="@+id/selectTimeEV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="SelectTime"
+        android:textSize="20dp"
+        android:editable="false"/>
+
+    <EditText
+        android:id="@+id/noteEV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Brief description about your problem."
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:textSize="20dp"/>
+</LinearLayout>
