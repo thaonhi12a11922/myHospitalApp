@@ -13,17 +13,25 @@
         android:theme="@style/Theme.MyHospitalApp"
         tools:targetApi="31">
         <activity
+            android:name=".ViewAppointment"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".BookAppointment"
+            android:exported="false"
+            android:parentActivityName=".PatientHomepage"/>
+        <activity
             android:name=".Signup"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".PatientHomepage"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

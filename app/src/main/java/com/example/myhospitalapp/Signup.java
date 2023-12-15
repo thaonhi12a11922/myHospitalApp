@@ -1,18 +1,18 @@
 package com.example.myhospitalapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.myhospitalapp.databinding.ActivitySignupBinding;
 
 public class Signup extends AppCompatActivity {
 
     ActivitySignupBinding binding;
-    com.example.myhospitalsystem.Database db;
+    com.example.myhospitalapp.Database db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,12 @@ public class Signup extends AppCompatActivity {
         binding = ActivitySignupBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        db = new com.example.myhospitalsystem.Database(this);
+        //TODO: fix crashed back nurse
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        this.setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        db = new com.example.myhospitalapp.Database(this);
         binding.signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
