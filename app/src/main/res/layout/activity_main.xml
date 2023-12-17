@@ -4,106 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".LoginActivity">
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="467dp"
-        android:layout_height="669dp"
-        android:layout_marginBottom="332dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/hcms_23_24____lcm_december___lc_update__1__removebg_preview"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/bg_border_with_shadow">
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:srcCompat="@drawable/thit_k_cha_c__t_n"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        <ImageView
+            android:id="@+id/hospital_logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/hospital"
+            android:layout_marginTop="28dp"
+            />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/arima_madurai_medium"
-        android:text="Who Are You?"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="WELCOME BACK"
+            android:textColor="@color/black"
+            android:textSize="40dp" />
 
-    <Button
-        android:id="@+id/doctorButton"
-        android:layout_width="160dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#55C2C3"
-        android:fontFamily="@font/arima_madurai_extrabold"
-        android:text="Doctor"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        <TextView
+            android:id="@+id/whoru_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Who Are You?"
+            android:textSize="25dp"/>
 
-    <Button
-        android:id="@+id/nurseButton"
-        android:layout_width="160dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#55C2C3"
-        android:fontFamily="@font/arima_madurai_extrabold"
-        android:text="Nurse"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/doctorButton" />
+        <Button
+            android:id="@+id/doctorButton"
+            android:layout_width="160dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#55C2C3"
+            android:text="Doctor"
+            android:textSize="20dp"/>
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="104dp"
-        android:layout_height="106dp"
-        android:layout_marginTop="64dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/hospital" />
+        <Button
+            android:id="@+id/nurseButton"
+            android:layout_width="160dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#55C2C3"
+            android:text="Nurse"
+            android:textSize="20dp" />
 
-    <Button
-        android:id="@+id/patientButton"
-        android:layout_width="160dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#55C2C3"
-        android:fontFamily="@font/arima_madurai_extrabold"
-        android:text="Patient"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nurseButton" />
+        <Button
+            android:id="@+id/patientButton"
+            android:layout_width="160dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#55C2C3"
+            android:text="Patient"
+            android:textSize="20dp" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="252dp"
-        android:fontFamily="@font/arima_madurai_extrabold"
-        android:text="WELCOME BACK"
-        android:textColor="@color/black"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

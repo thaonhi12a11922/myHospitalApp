@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         this.setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("myHospitalApp");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         db = new Database(this);
@@ -47,9 +48,9 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }
 
-//                Intent intent = new Intent(LoginActivity.this, BookAppointment.class);
-//                LoginActivity.this.startActivity(intent);
-//                LoginActivity.this.finish();
+                Intent intent = new Intent(LoginActivity.this, BookAppointment.class);
+                LoginActivity.this.startActivity(intent);
+                LoginActivity.this.finish();
             }
         });
     }
