@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -55,6 +56,7 @@ public class AppointmentDatabase extends SQLiteOpenHelper {
                 String note = reader.getString(4);
                 Appointment appointment = new Appointment(name, department, date, time, note);
                 appointments.add(appointment);
+                Log.d("patientlist", appointment.toString());
             } while (reader.moveToNext());
         }
 
