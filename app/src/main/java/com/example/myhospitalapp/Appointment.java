@@ -3,15 +3,17 @@ package com.example.myhospitalapp;
 public class Appointment {
 
     private String patientName;
+    private String department;
     private String date;
     private String time;
     private String note;
 
-    public Appointment(String patientName, String date, String time, String note) {
+    public Appointment(String patientName, String department, String date, String time, String note) {
         this.patientName = patientName;
         this.date = date;
         this.time = time;
         this.note = note;
+        this.department = department;
     }
 
     @Override
@@ -22,6 +24,14 @@ public class Appointment {
                 ", time='" + time + '\'' +
                 ", note='" + note + '\'' +
                 '}';
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
     public String getPatientName() {

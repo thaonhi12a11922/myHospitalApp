@@ -24,16 +24,17 @@ public class PatientHomepage extends AppCompatActivity {
         getSupportActionBar().setTitle("myHospitalApp");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Intent intent2 = getIntent();
+        String username = intent2.getStringExtra("username");
+        binding.customerGreeting.setText("Hello " + username + "!");
+
         binding.bookAppointmentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PatientHomepage.this, BookAppointment.class);
+                intent.putExtra("patientname", username);
                 PatientHomepage.this.startActivity(intent);
             }
         });
-
-        Intent intent = getIntent();
-        String username = intent.getStringExtra("username");
-        binding.customerGreeting.setText("Hello " + username + "!");
     }
 }

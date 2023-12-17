@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         android:minHeight="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="#47B9BA"
         android:backgroundTint="#47B9BA"
         app:titleTextColor="@color/white"
         app:subtitleTextColor="@color/white"

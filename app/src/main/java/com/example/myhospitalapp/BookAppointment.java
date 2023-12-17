@@ -1,5 +1,6 @@
 package com.example.myhospitalapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -36,11 +37,14 @@ public class BookAppointment extends AppCompatActivity {
         String[] departments = {"Select Area", "Cardiology", "Respiratory diseases", "Dermatology",
                 "Gynecology", "Psychiatry", "Neurology", "Elderly Services", "Ophthalmology", "Rheumatology "};
 
+        Appointment appointment = new Appointment(null, null, null, null, null);
+
         Spinner spinner = (Spinner) binding.departmentSpinner;
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 String item = adapterView.getItemAtPosition(position).toString();
+                appointment.setDepartment(item);
             }
 
             @Override
@@ -48,7 +52,6 @@ public class BookAppointment extends AppCompatActivity {
 
             }
         });
-
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, departments);
         adapter.setDropDownViewResource(android.R.layout.simple_selectable_list_item);
         spinner.setAdapter(adapter);
@@ -58,17 +61,17 @@ public class BookAppointment extends AppCompatActivity {
         MaterialDatePicker materialDatePicker = MaterialDatePicker.Builder.datePicker()
                 .setTitleText("Select Date").setSelection(MaterialDatePicker.todayInUtcMilliseconds()).build();
 
-        selectDate.setOnClickListener(new View.OnClickListener() {
+        materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
+            @Override
+            public void onPositiveButtonClick(Object selection) {
+                String date = materialDatePicker.getHeaderText();
+                selectDate.setText(date);
+            }
+        });
+        binding.selectDateBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 materialDatePicker.show(getSupportFragmentManager(), "Tag_date_picker");
-                materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
-                    @Override
-                    public void onPositiveButtonClick(Object selection) {
-                        String date = materialDatePicker.getHeaderText();
-                        selectDate.setText(date);
-                    }
-                });
             }
         });
         Calendar calendar = Calendar.getInstance();
@@ -76,28 +79,34 @@ public class BookAppointment extends AppCompatActivity {
                 .setHour(calendar.get(Calendar.HOUR_OF_DAY))
                 .setMinute(calendar.get(Calendar.MINUTE))
                 .build();
-        selectTime.setOnClickListener(new View.OnClickListener() {
+        materialTimePicker.addOnPositiveButtonClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int hour = materialTimePicker.getHour();
+                int minute = materialTimePicker.getMinute();
+                selectTime.setText(hour + ":" + minute);
+            }
+        });
+
+        binding.selectTimeBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 materialTimePicker.show(getSupportFragmentManager(), "Tag_time_picker");
-                materialTimePicker.addOnPositiveButtonClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        int hour = materialTimePicker.getHour();
-                        int minute = materialTimePicker.getMinute();
-                        selectTime.setText(hour + ":" + minute);
-                    }
-                });
             }
         });
 
         binding.submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String department = binding.departmentSpinner.toString();
+                String department = appointment.getDepartment();
                 String date = binding.selectDateEV.getText().toString();
                 String time = binding.selectTimeEV.getText().toString();
                 String note = binding.noteEV.getText().toString();
+
+
+                Intent intent = getIntent();
+                String patientName = intent.getStringExtra("patientname");
+                appointment.setPatientName(patientName);
 
                 if (department.equals("")
                         || date.equals("")
@@ -105,9 +114,10 @@ public class BookAppointment extends AppCompatActivity {
                         || note.equals("")){
                     Toast.makeText(BookAppointment.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 } else {
-                    Boolean insert = db.insertData(department, date, time, note);
+                    Boolean insert = db.insertData(patientName, department, date, time, note);
                     if (insert){
-                        Toast.makeText(BookAppointment.this, "Booking successfully!", Toast.LENGTH_SHORT).show();
+                        String message = "Booking successfully!";
+                        Toast.makeText(BookAppointment.this, message, Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(BookAppointment.this, "Booking failed. Please try again", Toast.LENGTH_SHORT).show();
                     }

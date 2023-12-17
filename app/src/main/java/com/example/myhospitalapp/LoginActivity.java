@@ -42,17 +42,14 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Sign in successfully!", Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(LoginActivity.this, PatientHomepage.class);
+
+                        intent.putExtra("username", username);
                         LoginActivity.this.startActivity(intent);
                         LoginActivity.this.finish();
                     } else {
                         Toast.makeText(LoginActivity.this, "Username or password is incorrect!", Toast.LENGTH_SHORT).show();
                     }
                 }
-
-                Intent intent = new Intent(LoginActivity.this, PatientHomepage.class);
-                intent.putExtra("username", username);
-                LoginActivity.this.startActivity(intent);
-                LoginActivity.this.finish();
             }
         });
     }
