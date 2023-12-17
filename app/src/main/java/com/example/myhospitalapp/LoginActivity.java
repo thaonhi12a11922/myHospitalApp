@@ -21,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
 
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         this.setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("myHospitalApp");
@@ -48,7 +49,8 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }
 
-                Intent intent = new Intent(LoginActivity.this, BookAppointment.class);
+                Intent intent = new Intent(LoginActivity.this, PatientHomepage.class);
+                intent.putExtra("username", username);
                 LoginActivity.this.startActivity(intent);
                 LoginActivity.this.finish();
             }

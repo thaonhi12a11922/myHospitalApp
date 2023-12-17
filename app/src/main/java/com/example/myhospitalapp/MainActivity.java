@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 //                MainActivity.this.finish();
             }
         });
-//        binding.doctorButton.setBackgroundColor(Color.CYAN);
+
         binding.doctorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

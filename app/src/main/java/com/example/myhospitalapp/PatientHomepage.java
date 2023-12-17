@@ -18,8 +18,10 @@ public class PatientHomepage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityPatientHomepageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
         this.setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("myHospitalApp");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         binding.bookAppointmentBtn.setOnClickListener(new View.OnClickListener() {
@@ -27,8 +29,11 @@ public class PatientHomepage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(PatientHomepage.this, BookAppointment.class);
                 PatientHomepage.this.startActivity(intent);
-                PatientHomepage.this.finish();
             }
         });
+
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("username");
+        binding.customerGreeting.setText("Hello " + username + "!");
     }
 }

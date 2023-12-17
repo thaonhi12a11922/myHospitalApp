@@ -23,6 +23,7 @@ public class Signup extends AppCompatActivity {
         //TODO: fix crashed back nurse
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         this.setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("myHospitalApp");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         db = new com.example.myhospitalapp.Database(this);

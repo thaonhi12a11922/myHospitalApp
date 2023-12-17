@@ -15,11 +15,12 @@ public class AppointmentDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE APPOINTMENT (department text, date text, time text, note text PRIMARY KEY)");
+        db.execSQL("CREATE TABLE APPOINTMENT (department text, note text PRIMARY KEY)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS APPOINTMENT");
 
     }
 
@@ -27,8 +28,6 @@ public class AppointmentDatabase extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("dpartment", department);
-        contentValues.put("date", date);
-        contentValues.put("time", time);
         contentValues.put("note", note);
         long result = db.insert("APPOINTMENT", null, contentValues);
         if (result == -1){

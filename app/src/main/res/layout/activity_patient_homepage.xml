@@ -4,28 +4,101 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PatientHomepage">
-
-
+    tools:context=".PatientHomepage"
+    android:background="@drawable/background">
 
     <androidx.appcompat.widget.Toolbar
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         android:minHeight="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="#47B9BA"
         />
 
-    <Button
-        android:id="@+id/bookAppointmentBtn"
+    <TextView
+        android:id="@+id/customerGreeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Book Appointment"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Hello username!"
+        android:textColor="#fff"
+        android:textSize="24dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/bg_border_with_shadow">
+
+        <Button
+            android:id="@+id/bookAppointmentBtn"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:backgroundTint="#fff"
+            android:text="Book Appointment"
+            android:fontFamily="@font/montserrat_medium"
+            android:textColor="#333"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/patient_book_appointment" />
+
+        <Button
+            android:id="@+id/viewPersonalInformation"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:textColor="#333"
+            android:backgroundTint="#fff"
+            android:text="View Personal Information"
+            android:fontFamily="@font/montserrat_medium"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/patient_view_personal_information" />
+
+        <Button
+            android:id="@+id/billingStatement"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:textColor="#333"
+            android:backgroundTint="#fff"
+            android:text="Billing Statement"
+            android:fontFamily="@font/montserrat_medium"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/patient_billing_statement" />
+
+        <Button
+            android:id="@+id/customerService"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:textColor="#333"
+            android:backgroundTint="#fff"
+            android:text="Customer Service"
+            android:fontFamily="@font/montserrat_medium"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/patient_customer_service" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
